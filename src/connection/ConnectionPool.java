@@ -20,6 +20,10 @@ public class ConnectionPool {
         }
     }
 
+    /**
+     * 发布连接
+     * @param connection 连接
+     */
     public void releaseConnection(Connection connection) {
         if (connection != null) {
             synchronized (pool) {
@@ -29,6 +33,12 @@ public class ConnectionPool {
         }
     }
 
+    /**
+     * 获取连接
+     * @param mills 超时时间
+     * @return connection 连接
+     * @throws InterruptedException
+     */
     public Connection fetchConnection(long mills) throws InterruptedException {
         synchronized (pool) {
             if (mills <= 0) {
