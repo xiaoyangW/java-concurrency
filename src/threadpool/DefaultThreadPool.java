@@ -118,6 +118,7 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job> 
                         job.run();
                     } catch (Exception ex) {
                         System.err.print("job running error\n");
+                        ex.printStackTrace();
                     }
                 }
             }
